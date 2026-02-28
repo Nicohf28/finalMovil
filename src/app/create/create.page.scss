@@ -1,0 +1,65 @@
+.form-container {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.toolbar-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 16px; /* padding estándar móvil */
+}
+
+.main-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.sub-title {
+  font-size: 11px;
+  opacity: 0.85;
+  margin-top: 2px;
+  line-height: 1.2;
+}
+
+/* INPUTS */
+.custom-item {
+  margin-bottom: 14px;
+  --border-radius: 14px;
+  --background: #ffffff;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+ion-input,
+ion-textarea {
+  font-size: 14px;
+}
+
+/* BOTÓN */
+.save-btn {
+  margin-top: 18px;
+  height: 44px;
+  font-size: 14px;
+  border-radius: 14px;
+}
+
+.main-title {
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.sub-title {
+  font-weight: 400;
+  letter-spacing: 0.2px;
+}
+
+ion-button {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+ion-card-title {
+  font-weight: 600;
+}

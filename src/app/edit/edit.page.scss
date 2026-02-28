@@ -1,0 +1,40 @@
+.toolbar-title {
+  text-align: left;
+}
+
+.title-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.main-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.sub-title {
+  font-size: 11px;
+  opacity: 0.85;
+  margin-top: 2px;
+  line-height: 1.2;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.custom-item {
+  margin-bottom: 14px;
+  --border-radius: 14px;
+  --background: #ffffff;
+}
+
+.save-btn {
+  margin-top: 18px;
+  height: 44px;
+  border-radius: 14px;
+}

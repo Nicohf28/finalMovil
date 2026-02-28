@@ -1,0 +1,162 @@
+/* Contenedor principal centrado tipo app móvil */
+.container {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 14px;
+}
+
+/* Toolbar */
+.toolbar-title {
+  text-align: left;
+}
+
+.title-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.main-title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.sub-title {
+  font-size: 11px;
+  opacity: 0.85;
+  margin-top: 2px;
+  line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+}
+
+/* BOTÓN CREAR */
+.create-btn {
+  height: 44px;
+  font-size: 14px;
+  border-radius: 14px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* CARD BASE */
+.info-card {
+  border-radius: 16px;
+  margin-bottom: 14px;
+
+  /* Borde gris más visible */
+  border: 2px solid #cfcfcf;
+
+  /* Sombra suave */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+
+  color: #1c1c1c;
+}
+
+/* Morado claro un poco más intenso */
+.purple-card {
+  background-color: #d8b4e2;
+}
+
+/* Verde claro un poco más intenso */
+.green-card {
+  background-color: #bfe6c5;
+}
+
+/* TITULO CARD */
+ion-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2c2c2c;
+}
+
+/* DESCRIPCIÓN */
+ion-card-content {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #333;
+}
+
+/* BOTONES CARD */
+.button-group {
+  display: flex;
+  gap: 8px;
+  padding: 8px 12px 14px 12px;
+}
+
+.button-group ion-button {
+  flex: 1;
+  height: 34px;
+  font-size: 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* ========================= */
+/* BASE BOTONES OUTLINE      */
+/* ========================= */
+
+.button-group ion-button {
+  flex: 1;
+  height: 34px;
+  font-size: 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  --background: transparent;
+  --box-shadow: none;
+  --border-width: 1.5px;
+
+  transition: all 0.2s ease-in-out;
+}
+
+/* Colores normales (solo borde y texto) */
+
+.btn-purple {
+  --color: var(--ion-color-primary);
+  --border-color: var(--ion-color-primary);
+}
+
+.btn-green {
+  --color: var(--ion-color-success);
+  --border-color: var(--ion-color-success);
+}
+
+.btn-red {
+  --color: var(--ion-color-danger);
+  --border-color: var(--ion-color-danger);
+}
+
+/* ========================= */
+/* HOVER FUERTE FORZADO     */
+/* ========================= */
+
+@media (hover: hover) {
+
+  .btn-purple:hover {
+    --background: var(--ion-color-primary) !important;
+    --color: var(--ion-color-primary-contrast) !important;
+    --border-color: var(--ion-color-primary) !important;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  .btn-green:hover {
+    --background: var(--ion-color-success) !important;
+    --color: var(--ion-color-success-contrast) !important;
+    --border-color: var(--ion-color-success) !important;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  .btn-red:hover {
+    --background: var(--ion-color-danger) !important;
+    --color: var(--ion-color-danger-contrast) !important;
+    --border-color: var(--ion-color-danger) !important;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+  }
+
+}
