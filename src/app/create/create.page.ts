@@ -30,4 +30,10 @@ export class CreatePage {
       this.router.navigate(['/detail', id]);
     });
   }
+
+  goToDetail() {
+    const id = uuidv4(); // Genera un ID único para la nueva entrada
+    // Navega a DetailPage con el id
+    this.router.navigate(['/detail', id]);
+  }
 }

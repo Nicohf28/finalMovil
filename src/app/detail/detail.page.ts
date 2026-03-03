@@ -73,4 +73,8 @@ export class DetailPage implements OnInit {
         console.error('Error al eliminar:', error);
       });
   }
+
+  endSession() {
+    this.router.navigate(['/login']);
+  }
 }

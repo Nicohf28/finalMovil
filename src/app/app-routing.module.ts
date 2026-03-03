@@ -22,6 +22,16 @@ const routes: Routes = [
     loadComponent: () =>
       import('./detail/detail.page').then(m => m.DetailPage)
   },
+  {
+    path: 'edit/:id',
+    loadComponent: () =>
+      import('./edit/edit.page').then(m => m.EditPage)
+  },
+  {
+    path: 'register',
+    loadComponent: () =>
+      import('./pages/register/register.page').then(m => m.RegisterPage)
+  },
 ];
 
 @NgModule({
