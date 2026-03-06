@@ -18,6 +18,14 @@
       <ion-input type="password" formControlName="password"></ion-input>
     </ion-item>
 
+    <ion-item>
+      <ion-label>Tipo de cuenta</ion-label>
+      <ion-select formControlName="role" placeholder="Selecciona tu rol" interface="action-sheet">
+        <ion-select-option value="local">Local</ion-select-option>
+        <ion-select-option value="repartidor">Repartidor</ion-select-option>
+      </ion-select>
+    </ion-item>
+
     <ion-button expand="block" type="submit" [disabled]="form.invalid">
       Registrarse
     </ion-button>

@@ -5,8 +5,16 @@
       <div class="main-title">Create Info</div>
       <div class="sub-title">
         Nicolás Hernández Flórez y Karen Sofía Rueda Piñeros
+        <span *ngIf="role" class="role-badge"> · {{ roleLabel }}</span>
       </div>
     </div>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon name="log-out-outline"></ion-icon>
+        Salir
+      </ion-button>
+    </ion-buttons>
 
   </ion-toolbar>
 </ion-header>

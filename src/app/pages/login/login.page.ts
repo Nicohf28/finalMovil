@@ -40,8 +40,15 @@ export class LoginPage {
     }
 
     try {
-      await this.authService.login(this.email, this.password);
-      this.router.navigate(['/create']);
+      const userCredential = await this.authService.login(this.email, this.password);
+      const role = await this.authService.getUserRole(userCredential.user.uid);
+      if (role === 'local') {
+        this.router.navigate(['/create']);
+      } else if (role === 'repartidor') {
+        this.router.navigate(['/create']);
+      } else {
+        this.showMessage('Tu cuenta no tiene un rol asignado. Contacta al administrador.');
+      }
     } catch (error) {
       console.error(error);
       this.showMessage('Credenciales incorrectas');
