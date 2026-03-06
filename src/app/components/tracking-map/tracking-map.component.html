@@ -1,0 +1,9 @@
+<div class="map-wrapper">
+  <div #mapContainer class="map-container"></div>
+  <div *ngIf="loading" class="map-loading">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Cargando mapa...</p>
+  </div>
+  <div *ngIf="error" class="map-error">{{ error }}</div>
+  <div class="map-legend">Tu ubicación en tiempo real</div>
+</div>

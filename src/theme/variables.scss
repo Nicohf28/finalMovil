@@ -1,22 +1,71 @@
-
+// -------------------------------------------
+// Repostería - Tema por defecto (login/registro)
+// -------------------------------------------
 :root {
-
-  /* MORADO PRINCIPAL */
-  --ion-color-primary: #6a1b9a;
-  --ion-color-primary-rgb: 106,27,154;
+  --ion-color-primary: #8b6914;
+  --ion-color-primary-rgb: 139, 105, 20;
   --ion-color-primary-contrast: #ffffff;
-  --ion-color-primary-contrast-rgb: 255,255,255;
-  --ion-color-primary-shade: #5d1788;
-  --ion-color-primary-tint: #7932a6;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #7a5d12;
+  --ion-color-primary-tint: #97782c;
 
-  /* VERDE ACCIÓN */
-  --ion-color-success: #00c853;
-  --ion-color-success-rgb: 0,200,83;
+  --ion-color-success: #2e7d32;
+  --ion-color-success-rgb: 46, 125, 50;
   --ion-color-success-contrast: #ffffff;
-  --ion-color-success-contrast-rgb: 255,255,255;
-  --ion-color-success-shade: #00b34a;
-  --ion-color-success-tint: #1ad164;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #286e2b;
+  --ion-color-success-tint: #438a47;
 
-  /* FONDO SUAVE */
-  --ion-background-color: #f4f1f8;
+  --ion-background-color: #fff9f0;
+  --ion-card-background: #ffffff;
+  --reposteria-accent: #c4a35a;
+  --reposteria-text: #4a3728;
+}
+
+// -------------------------------------------
+// Tema LOCAL - Pastelería cálida (crema, dorado, marrón)
+// -------------------------------------------
+body.theme-local {
+  --ion-color-primary: #a0522d;
+  --ion-color-primary-rgb: 160, 82, 45;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #8d4828;
+  --ion-color-primary-tint: #aa6342;
+
+  --ion-color-success: #5d8a3c;
+  --ion-color-success-rgb: 93, 138, 60;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #527935;
+  --ion-color-success-tint: #6d9650;
+
+  --ion-background-color: #faf6ef;
+  --ion-card-background: #fffef9;
+  --reposteria-accent: #c4a35a;
+  --reposteria-text: #3d2e22;
+}
+
+// -------------------------------------------
+// Tema REPARTIDOR - Fresco y dinámico (verde, azul suave)
+// -------------------------------------------
+body.theme-repartidor {
+  --ion-color-primary: #1565c0;
+  --ion-color-primary-rgb: 21, 101, 192;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #1259a9;
+  --ion-color-primary-tint: #2c74c7;
+
+  --ion-color-success: #2e7d32;
+  --ion-color-success-rgb: 46, 125, 50;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #286e2b;
+  --ion-color-success-tint: #438a47;
+
+  --ion-background-color: #e8f4f8;
+  --ion-card-background: #ffffff;
+  --reposteria-accent: #42a5f5;
+  --reposteria-text: #1a237e;
 }

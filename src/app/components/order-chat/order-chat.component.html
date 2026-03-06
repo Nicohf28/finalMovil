@@ -1,0 +1,26 @@
+<div class="chat-container">
+  <div class="chat-header">
+    <ion-icon name="chatbubbles-outline"></ion-icon>
+    <span>Chat del pedido</span>
+  </div>
+  <div class="messages-wrap">
+    <div *ngFor="let msg of messages" class="message" [class.own]="isOwn(msg)">
+      <div class="message-bubble">
+        <span class="message-sender">{{ msg.fromRole === 'local' ? 'Local' : 'Repartidor' }}</span>
+        <p class="message-text">{{ msg.text }}</p>
+        <span class="message-time">{{ formatTime(msg.createdAt) }}</span>
+      </div>
+    </div>
+    <div #messagesEnd></div>
+  </div>
+  <div class="chat-input-wrap">
+    <ion-input
+      [(ngModel)]="newText"
+      placeholder="Escribe un mensaje..."
+      (keydown.enter)="send()"
+      [disabled]="sending"></ion-input>
+    <ion-button (click)="send()" [disabled]="sending || !newText.trim()" fill="solid" size="small">
+      <ion-icon name="send"></ion-icon>
+    </ion-button>
+  </div>
+</div>

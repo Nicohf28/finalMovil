@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/repartidor"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalle del pedido</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="container" *ngIf="order">
+    <div class="order-header-card">
+      <span class="order-id">#{{ order.id.slice(0, 8) }}</span>
+      <span class="order-status" [class]="'status-' + order.status">{{ statusLabel(order.status) }}</span>
+      <p class="order-date">{{ formatDate(order.createdAt) }}</p>
+      <p class="order-local">Local: {{ order.localEmail }}</p>
+      <p *ngIf="order.deliveryAddress" class="order-address">
+        <ion-icon name="location-outline"></ion-icon> {{ order.deliveryAddress }}
+      </p>
+    </div>
+
+    <div class="section" *ngIf="showMap">
+      <h3>Seguimiento en mapa</h3>
+      <app-tracking-map [orderId]="order.id"></app-tracking-map>
+    </div>
+
+    <div class="section">
+      <h3>Productos</h3>
+      <div class="items-list">
+        <div *ngFor="let item of order.items" class="item-row">
+          <span class="item-name">{{ item.name }} × {{ item.quantity }}</span>
+          <span class="item-price">{{ formatPrice(item.price * item.quantity) }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="total-row">
+      <strong>Total</strong>
+      <strong>{{ formatPrice(order.total) }}</strong>
+    </div>
+
+    <div class="actions" *ngIf="order.status !== 'entregado'">
+      <ion-button
+        *ngIf="order.status === 'pendiente'"
+        expand="block"
+        color="primary"
+        (click)="setStatus('asignado')">
+        Aceptar pedido
+      </ion-button>
+      <ion-button
+        *ngIf="order.status === 'asignado'"
+        expand="block"
+        color="success"
+        (click)="setStatus('en_camino')">
+        En camino
+      </ion-button>
+      <ion-button
+        *ngIf="order.status === 'en_camino'"
+        expand="block"
+        color="success"
+        (click)="setStatus('entregado')">
+        Marcar entregado
+      </ion-button>
+    </div>
+
+    <div *ngIf="order.status === 'entregado'" class="done-msg">
+      <ion-icon name="checkmark-done"></ion-icon>
+      Pedido entregado
+    </div>
+
+    <div class="section chat-section" *ngIf="currentUser">
+      <h3>Chat con el local</h3>
+      <app-order-chat
+        [orderId]="order.id"
+        [currentUid]="currentUser.uid"
+        [currentEmail]="currentUser.email || ''"
+        currentRole="repartidor">
+      </app-order-chat>
+    </div>
+  </div>
+
+  <div *ngIf="!order" class="loading">
+    <ion-spinner></ion-spinner>
+    <p>Cargando pedido...</p>
+  </div>
+</ion-content>

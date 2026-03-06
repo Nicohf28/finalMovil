@@ -1,0 +1,125 @@
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.toolbar-text {
+  display: flex;
+  flex-direction: column;
+  padding-left: 4px;
+}
+
+.main-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.sub-title {
+  font-size: 12px;
+  opacity: 0.9;
+  margin-top: 2px;
+}
+
+.intro {
+  font-size: 14px;
+  color: var(--reposteria-text, #1a237e);
+  margin-bottom: 16px;
+  opacity: 0.9;
+}
+
+.empty {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--reposteria-text, #1a237e);
+  opacity: 0.9;
+
+  .empty-icon {
+    font-size: 64px;
+    margin-bottom: 16px;
+    opacity: 0.5;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}
+
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.order-card {
+  padding: 16px;
+  background: var(--ion-card-background, #fff);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-left: 4px solid var(--ion-color-primary);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  &:active {
+    transform: scale(0.99);
+  }
+
+  &.pendiente {
+    border-left-color: var(--ion-color-warning, #ff9800);
+  }
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.order-id {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--reposteria-text, #1a237e);
+}
+
+.order-status {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 8px;
+
+  &.status-pendiente {
+    background: rgba(255, 152, 0, 0.2);
+    color: var(--ion-color-warning-shade, #e68900);
+  }
+
+  &.status-asignado {
+    background: rgba(33, 150, 243, 0.2);
+    color: var(--ion-color-primary);
+  }
+
+  &.status-en_camino {
+    background: rgba(46, 125, 50, 0.2);
+    color: var(--ion-color-success);
+  }
+
+  &.status-entregado {
+    background: rgba(76, 175, 80, 0.2);
+    color: var(--ion-color-success-shade);
+  }
+}
+
+.order-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--reposteria-text, #1a237e);
+  opacity: 0.9;
+}
+
+.order-date {
+  font-size: 12px;
+  opacity: 0.7;
+  margin-top: 6px;
+}

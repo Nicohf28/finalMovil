@@ -36,12 +36,16 @@
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
 
+/* -------------------------------------------
+   Aplicación de Repostería - Estilos globales
+   ------------------------------------------- */
+
 /* Texto general */
 body {
   font-family: 'Inter', sans-serif;
 }
 
-/* Títulos principales */
+/* Títulos principales - estilo repostería */
 .main-title,
 ion-card-title,
 ion-title {
@@ -56,4 +60,27 @@ ion-button {
   font-weight: 600;
   letter-spacing: 0.8px;
   text-transform: uppercase;
+}
+
+/* Contenido con fondo acogedor */
+ion-content {
+  --background: var(--ion-background-color, #fff9f0);
+}
+
+/* Cards con sombra suave tipo repostería */
+ion-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* Tema Local: toolbars y acentos cálidos */
+body.theme-local ion-toolbar {
+  --background: var(--ion-color-primary);
+  --color: var(--ion-color-primary-contrast);
+}
+
+/* Tema Repartidor: toolbars frescos */
+body.theme-repartidor ion-toolbar {
+  --background: var(--ion-color-primary);
+  --color: var(--ion-color-primary-contrast);
 }

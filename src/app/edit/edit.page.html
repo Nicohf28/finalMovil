@@ -2,10 +2,8 @@
   <ion-toolbar color="primary">
     <ion-title class="toolbar-title">
       <div class="title-wrapper">
-        <div class="main-title">Edit Info</div>
-        <div class="sub-title">
-          Nicolás Hernández Flórez y Karen Sofía Rueda Piñeros
-        </div>
+        <div class="main-title">Repostería</div>
+        <div class="sub-title">Editar pedido</div>
       </div>
     </ion-title>
   </ion-toolbar>
@@ -18,12 +16,12 @@
     <form [formGroup]="infoForm" (ngSubmit)="updateInfo()">
 
       <ion-item class="custom-item">
-        <ion-label position="floating">Title</ion-label>
+        <ion-label position="floating">Título</ion-label>
         <ion-input formControlName="info_title"></ion-input>
       </ion-item>
 
       <ion-item class="custom-item">
-        <ion-label position="floating">Description</ion-label>
+        <ion-label position="floating">Descripción</ion-label>
         <ion-textarea
           rows="4"
           formControlName="info_description">
@@ -36,7 +34,7 @@
         class="save-btn"
         type="submit"
         [disabled]="infoForm.invalid">
-        Save Changes
+        Guardar cambios
       </ion-button>
 
     </form>

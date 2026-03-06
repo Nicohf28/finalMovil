@@ -3,26 +3,21 @@ import { inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { UserRole } from '../models/user-role';
-import { map, take } from 'rxjs/operators';
 
 export function roleGuard(allowedRoles: UserRole[]): CanActivateFn {
-  return () => {
+  return async () => {
     const router = inject(Router);
     const authService = inject(AuthService);
 
-    return authService.role$.pipe(
-      take(1),
-      map((role) => {
-        if (!authService.getCurrentUser()) {
-          router.navigate(['/login']);
-          return false;
-        }
-        if (role && allowedRoles.includes(role)) {
-          return true;
-        }
-        router.navigate(['/login']);
-        return false;
-      })
-    );
+    const user = authService.getCurrentUser();
+    if (!user) {
+      router.navigate(['/login']);
+      return false;
+    }
+
+    const role = await authService.getUserRole(user.uid);
+    if (role && allowedRoles.includes(role)) return true;
+    router.navigate(['/login']);
+    return false;
   };
 }

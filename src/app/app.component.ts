@@ -1,15 +1,6 @@
-import { Component } from '@angular/core';
-import { initializeApp } from 'firebase/app';
-
-const firebaseConfig = {
-  apiKey: "AIzaSyBOkSzuCTyy0ZmFuHZADTRCZwngGQHnRx4",
-  authDomain: "crud-a0659.firebaseapp.com",
-  databaseURL: "https://crud-a0659-default-rtdb.firebaseio.com",
-  projectId: "crud-a0659",
-  storageBucket: "crud-a0659.firebasestorage.app",
-  messagingSenderId: "962367746252",
-  appId: "1:962367746252:web:01a84bcd895d12ace65269"
-};
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { AuthService } from './services/auth.service';
+import { UserRole } from './models/user-role';
 
 @Component({
   selector: 'app-root',
@@ -18,8 +9,24 @@ const firebaseConfig = {
   standalone: false,
 })
 
-export class AppComponent {
-  constructor() {
-    initializeApp(firebaseConfig);
+export class AppComponent implements OnInit, OnDestroy {
+  role: UserRole | null = null;
+  private sub: any;
+
+  constructor(private authService: AuthService) {}
+
+  ngOnInit() {
+    this.sub = this.authService.role$.subscribe((r) => {
+      this.role = r;
+      document.body.classList.remove('theme-local', 'theme-repartidor', 'theme-reposteria');
+      if (r === 'local') document.body.classList.add('theme-local');
+      else if (r === 'repartidor') document.body.classList.add('theme-repartidor');
+      else document.body.classList.add('theme-reposteria');
+    });
+  }
+
+  ngOnDestroy() {
+    this.sub?.unsubscribe();
+    document.body.classList.remove('theme-local', 'theme-repartidor', 'theme-reposteria');
   }
 }

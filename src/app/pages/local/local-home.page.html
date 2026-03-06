@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <div slot="start" class="toolbar-text">
+      <div class="main-title">Repostería</div>
+      <div class="sub-title">{{ roleLabel }} · Catálogo</div>
+    </div>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/local/orders">
+        <ion-icon name="receipt-outline"></ion-icon>
+        Pedidos
+      </ion-button>
+      <ion-button (click)="goToCart()" class="cart-btn">
+        <ion-icon name="cart-outline"></ion-icon>
+        <ion-badge *ngIf="cartCount > 0" color="danger">{{ cartCount }}</ion-badge>
+      </ion-button>
+      <ion-button (click)="logout()">
+        <ion-icon name="log-out-outline"></ion-icon>
+        Salir
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="container">
+    <p class="intro">Elige tus productos y añádelos al carrito.</p>
+
+    <div class="products-grid">
+      <div *ngFor="let product of products" class="product-card">
+        <div class="product-info">
+          <h3 class="product-name">{{ product.name }}</h3>
+          <p *ngIf="product.description" class="product-desc">{{ product.description }}</p>
+          <p class="product-price">{{ formatPrice(product.price) }}</p>
+        </div>
+        <ion-button size="small" color="success" (click)="addToCart(product)">
+          <ion-icon name="add-outline"></ion-icon>
+          Añadir
+        </ion-button>
+      </div>
+    </div>
+
+    <div *ngIf="cartCount > 0" class="cart-float">
+      <ion-button expand="block" color="success" (click)="goToCart()">
+        <ion-icon name="cart"></ion-icon>
+        Ver carrito ({{ cartCount }})
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

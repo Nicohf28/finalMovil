@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/local"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mis pedidos</ion-title>
+    <div slot="end" class="sub-title-header">{{ roleLabel }}</div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="container">
+    <p class="intro">Toca un pedido para ver detalle y chatear con el repartidor.</p>
+
+    <div *ngIf="orders.length === 0" class="empty">
+      <ion-icon name="receipt-outline" class="empty-icon"></ion-icon>
+      <p>Aún no tienes pedidos</p>
+    </div>
+
+    <div class="orders-list">
+      <div
+        *ngFor="let order of orders"
+        class="order-card"
+        (click)="openOrder(order)">
+        <div class="order-header">
+          <span class="order-id">#{{ order.id.slice(0, 8) }}</span>
+          <span class="order-status" [class]="'status-' + order.status">{{ statusLabel(order.status) }}</span>
+        </div>
+        <div class="order-meta">
+          <span>{{ itemCount(order) }} ítems · {{ formatPrice(order.total) }}</span>
+        </div>
+        <div class="order-date">{{ formatDate(order.createdAt) }}</div>
+      </div>
+    </div>
+  </div>
+</ion-content>

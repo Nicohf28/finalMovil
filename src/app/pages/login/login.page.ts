@@ -43,9 +43,9 @@ export class LoginPage {
       const userCredential = await this.authService.login(this.email, this.password);
       const role = await this.authService.getUserRole(userCredential.user.uid);
       if (role === 'local') {
-        this.router.navigate(['/create']);
+        this.router.navigate(['/local']);
       } else if (role === 'repartidor') {
-        this.router.navigate(['/create']);
+        this.router.navigate(['/repartidor']);
       } else {
         this.showMessage('Tu cuenta no tiene un rol asignado. Contacta al administrador.');
       }

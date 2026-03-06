@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/local"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Carrito</ion-title>
+    <div slot="end" class="sub-title-header">{{ roleLabel }}</div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="container">
+    <div *ngIf="items.length === 0" class="empty">
+      <ion-icon name="cart-outline" class="empty-icon"></ion-icon>
+      <p>Tu carrito está vacío</p>
+      <ion-button fill="outline" (click)="goBack()">Ver productos</ion-button>
+    </div>
+
+    <ng-container *ngIf="items.length > 0">
+      <div class="items-list">
+        <div *ngFor="let item of items" class="cart-item">
+          <div class="item-info">
+            <span class="item-name">{{ item.product.name }}</span>
+            <span class="item-price">{{ formatPrice(item.product.price) }} c/u</span>
+          </div>
+          <div class="item-actions">
+            <div class="qty-control">
+              <ion-button fill="outline" size="small" (click)="updateQty(item.product.id, -1)">
+                <ion-icon name="remove"></ion-icon>
+              </ion-button>
+              <span class="qty">{{ item.quantity }}</span>
+              <ion-button fill="outline" size="small" (click)="updateQty(item.product.id, 1)">
+                <ion-icon name="add"></ion-icon>
+              </ion-button>
+            </div>
+            <span class="item-subtotal">{{ formatPrice(item.product.price * item.quantity) }}</span>
+            <ion-button fill="clear" size="small" color="danger" (click)="remove(item.product.id)">
+              <ion-icon name="trash-outline"></ion-icon>
+            </ion-button>
+          </div>
+        </div>
+      </div>
+
+      <ion-item class="delivery-address-item">
+        <ion-input
+          label="Dirección de entrega (opcional)"
+          labelPlacement="floating"
+          placeholder="Calle, número, barrio..."
+          [(ngModel)]="deliveryAddress"></ion-input>
+      </ion-item>
+
+      <div class="total-row">
+        <strong>Total</strong>
+        <strong>{{ formatPrice(total) }}</strong>
+      </div>
+
+      <ion-button expand="block" color="success" class="confirm-btn" (click)="confirmOrder()">
+        Confirmar pedido
+      </ion-button>
+    </ng-container>
+  </div>
+</ion-content>

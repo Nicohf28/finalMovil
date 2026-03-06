@@ -1,0 +1,136 @@
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding-bottom: 24px;
+}
+
+.order-header-card {
+  padding: 16px;
+  background: var(--ion-card-background, #fff);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+
+  .order-id {
+    font-weight: 700;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .order-status {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+
+    &.status-pendiente {
+      background: rgba(255, 152, 0, 0.2);
+      color: var(--ion-color-warning-shade);
+    }
+    &.status-asignado {
+      background: rgba(33, 150, 243, 0.2);
+      color: var(--ion-color-primary);
+    }
+    &.status-en_camino {
+      background: rgba(46, 125, 50, 0.2);
+      color: var(--ion-color-success);
+    }
+    &.status-entregado {
+      background: rgba(76, 175, 80, 0.2);
+      color: var(--ion-color-success-shade);
+    }
+  }
+
+  .order-date,
+  .order-repartidor {
+    font-size: 13px;
+    margin: 4px 0 0 0;
+    opacity: 0.9;
+  }
+
+  .order-address {
+    font-size: 13px;
+    margin: 8px 0 0 0;
+    padding: 8px;
+    background: var(--ion-color-light);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    ion-icon {
+      flex-shrink: 0;
+    }
+  }
+}
+
+.section {
+  margin-bottom: 16px;
+
+  h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+    color: var(--reposteria-text, #3d2e22);
+  }
+}
+
+.items-list {
+  background: var(--ion-card-background, #fff);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.item-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .item-name {
+    color: var(--reposteria-text, #3d2e22);
+  }
+
+  .item-price {
+    font-weight: 600;
+    color: var(--ion-color-primary);
+  }
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  font-size: 18px;
+  background: var(--ion-card-background, #fff);
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+.chat-section {
+  margin-top: 8px;
+}
+
+.loading {
+  text-align: center;
+  padding: 48px 24px;
+
+  ion-spinner {
+    margin-bottom: 16px;
+  }
+
+  p {
+    margin: 0;
+    opacity: 0.8;
+  }
+}
