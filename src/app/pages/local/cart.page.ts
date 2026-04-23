@@ -2,10 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { IonicModule, AlertController, LoadingController } from '@ionic/angular';
+import { IonicModule, AlertController } from '@ionic/angular';
 import { AuthService } from '../../services/auth.service';
 import { CartService, CartItem } from '../../services/cart.service';
-import { OrdersService } from '../../services/orders.service';
 import { USER_ROLE_LABELS, UserRole } from '../../models/user-role';
 import { Subscription } from 'rxjs';
 
@@ -27,10 +26,8 @@ export class CartPage implements OnInit, OnDestroy {
   constructor(
     private authService: AuthService,
     private cartService: CartService,
-    private ordersService: OrdersService,
     private router: Router,
-    private alertCtrl: AlertController,
-    private loadingCtrl: LoadingController
+    private alertCtrl: AlertController
   ) {}
 
   ngOnInit() {
@@ -77,36 +74,9 @@ export class CartPage implements OnInit, OnDestroy {
       return;
     }
 
-    const loading = await this.loadingCtrl.create({ message: 'Creando pedido...' });
-    await loading.present();
-
-    try {
-      const orderItems = this.cartService.toOrderItems();
-      const total = this.cartService.getTotal();
-      await this.ordersService.createOrder(orderItems, total, user.uid, user.email, this.deliveryAddress || undefined);
-      this.cartService.clear();
-      await loading.dismiss();
-
-      const alert = await this.alertCtrl.create({
-        header: 'Pedido realizado',
-        message: 'Los repartidores verán tu pedido. Te contactaremos pronto.',
-        buttons: [
-          {
-            text: 'OK',
-            handler: () => this.router.navigate(['/local']),
-          },
-        ],
-      });
-      await alert.present();
-    } catch (err: any) {
-      await loading.dismiss();
-      const alert = await this.alertCtrl.create({
-        header: 'Error',
-        message: err?.message ?? 'No se pudo crear el pedido.',
-        buttons: ['OK'],
-      });
-      await alert.present();
-    }
+    this.router.navigate(['/local/checkout'], {
+      state: { deliveryAddress: this.deliveryAddress || '' },
+    });
   }
 
   goBack() {

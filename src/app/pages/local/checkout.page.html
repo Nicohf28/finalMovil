@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/local/cart"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Checkout</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="container">
+    <h2>Pago de pedido</h2>
+    <p class="subtitle">Total a pagar: <strong>{{ formatPrice(total) }}</strong></p>
+    <p class="hint">
+      Este flujo usa PayPal Sandbox para pruebas. No genera cobros reales.
+    </p>
+
+    <div id="paypal-button-container" class="paypal-container"></div>
+
+    <p *ngIf="!paypalReady && !paypalError" class="loading-paypal">Cargando PayPal...</p>
+    <ion-text color="danger" *ngIf="paypalError">
+      <p>{{ paypalError }}</p>
+    </ion-text>
+
+    <ion-button expand="block" fill="outline" (click)="continueWithoutPayment()" [disabled]="!canContinue">
+      Continuar sin pagar
+    </ion-button>
+
+    <ion-button expand="block" fill="clear" (click)="goBack()">
+      Volver al carrito
+    </ion-button>
+  </div>
+</ion-content>

@@ -8,5 +8,9 @@ export const environment = {
   storageBucket: "crud-a0659.firebasestorage.app",
   messagingSenderId: "962367746252",
   appId: "1:962367746252:web:01a84bcd895d12ace65269"
+  },
+  paypal: {
+    clientId: 'sb',
+    currency: 'USD'
   }
 };

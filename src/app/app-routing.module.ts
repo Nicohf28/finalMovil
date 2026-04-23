@@ -32,6 +32,12 @@ const routes: Routes = [
     canActivate: [roleGuard(['local'])]
   },
   {
+    path: 'local/checkout',
+    loadComponent: () =>
+      import('./pages/local/checkout.page').then(m => m.CheckoutPage),
+    canActivate: [roleGuard(['local'])]
+  },
+  {
     path: 'local/orders',
     loadComponent: () =>
       import('./pages/local/local-orders.page').then(m => m.LocalOrdersPage),

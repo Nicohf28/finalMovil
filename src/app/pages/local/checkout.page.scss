@@ -1,0 +1,25 @@
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.subtitle {
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.hint {
+  color: var(--ion-color-medium);
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.paypal-container {
+  min-height: 48px;
+  margin: 16px 0 20px;
+}
+
+.loading-paypal {
+  color: var(--ion-color-medium);
+  margin-bottom: 16px;
+}
